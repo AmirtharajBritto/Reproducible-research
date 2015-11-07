@@ -16,7 +16,7 @@ total.steps <- tapply(data$steps, data$date, FUN = sum, na.rm = TRUE)
 qplot(total.steps, binwidth = 1000, xlab = "total number of steps taken each day")
 ```
 
-![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
+![plot of chunk unnamed-chunk-1](figures/unnamed-chunk-1.png) 
 
 ```r
 mean(total.steps, na.rm = TRUE)
@@ -45,7 +45,7 @@ ggplot(data = averages, aes(x = interval, y = steps)) + geom_line() + xlab("5-mi
     ylab("average number of steps taken")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+![plot of chunk unnamed-chunk-2](figures/unnamed-chunk-2.png) 
 
 
 On average across all the days in the dataset, the 5-minute interval contains
@@ -103,7 +103,7 @@ total.steps <- tapply(filled.data$steps, filled.data$date, FUN = sum)
 qplot(total.steps, binwidth = 1000, xlab = "total number of steps taken each day")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-5](figures/unnamed-chunk-5.png) 
 
 ```r
 mean(total.steps)
@@ -155,4 +155,4 @@ ggplot(averages, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) +
     xlab("5-minute interval") + ylab("Number of steps")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-7](figures/unnamed-chunk-7.png) 
