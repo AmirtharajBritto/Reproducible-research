@@ -9,9 +9,6 @@ if(!file.exists('activity.csv')){
 }
 activityData <- read.csv('activity.csv')
 
-2. Process/transform the data (if necessary) into a format suitable for your analysis
-
-#activityData$interval <- strptime(gsub("([0-9]{1,2})([0-9]{2})", "\\1:\\2", activityData$interval), format='%H:%M')
 
 What is mean total number of steps taken per day?
 
@@ -42,6 +39,8 @@ ggplot(data=averageStepsPerTimeBlock, aes(x=interval, y=meanSteps)) +
   xlab("5-minute interval") +
   ylab("average number of steps taken") 
   
+  ![](unnamed-chunk-8.png?raw=true)
+  
   2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
   
   mostSteps <- which.max(averageStepsPerTimeBlock$meanSteps)
@@ -69,6 +68,8 @@ activityDataImputed$steps <- impute(activityData$steps, fun=mean)
 stepsByDayImputed <- tapply(activityDataImputed$steps, activityDataImputed$date, sum)
 qplot(stepsByDayImputed, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
 
+![](unnamed-chunk-12.png?raw=true)
+
 ... and Calculate and report the mean and median total number of steps taken per day.
 
 stepsByDayMeanImputed <- mean(stepsByDayImputed)
@@ -91,3 +92,5 @@ ggplot(averagedActivityDataImputed, aes(interval, steps)) +
   facet_grid(dateType ~ .) +
   xlab("5-minute interval") + 
   ylab("avarage number of steps")
+
+![](unnamed-chunk-15.png?raw=true)
